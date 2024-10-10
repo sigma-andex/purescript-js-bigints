@@ -15,6 +15,15 @@ package:
     dependencies:
       - console
       - effect
+      - debug
+      - effect
+      - quickcheck
+      - assert
+      - newtype
+      - quickcheck-laws
+      - arrays
+      - console
+      - foldable-traversable
 workspace:
   extraPackages: {}
   packageSet:
