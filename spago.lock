@@ -5,9 +5,15 @@
         "path": "./",
         "core": {
           "dependencies": [
-            "integers",
-            "maybe",
-            "prelude"
+            {
+              "integers": ">=6.0.0 <7.0.0"
+            },
+            {
+              "maybe": ">=6.0.0 <7.0.0"
+            },
+            {
+              "prelude": ">=6.0.1 <7.0.0"
+            }
           ],
           "build_plan": [
             "control",
