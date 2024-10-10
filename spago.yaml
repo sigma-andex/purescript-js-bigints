@@ -1,0 +1,21 @@
+package:
+  name: js-bigints
+  publish:
+    license: MIT
+    version: 2.2.1
+    location:
+      githubOwner: rowtype-yoga
+      githubRepo: purescript-js-bigints
+  dependencies:
+    - integers
+    - maybe
+    - prelude
+  test:
+    main: Test.Main
+    dependencies:
+      - console
+      - effect
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 60.5.0
