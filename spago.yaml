@@ -15,8 +15,6 @@ package:
     dependencies:
       - console
       - effect
-      - debug
-      - effect
       - quickcheck
       - assert
       - newtype

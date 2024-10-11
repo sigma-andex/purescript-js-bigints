@@ -9,7 +9,6 @@ import Data.Int (base36)
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Monoid.Conj (Conj(..))
 import Data.Newtype (un)
-import Debug (spy)
 import Effect (Effect)
 import Effect.Console (log)
 import JS.BigInt (BigInt, and, binary, decimal, even, fromInt, fromString, fromStringAs, fromTLInt, hexadecimal, not, octal, odd, or, pow, shl, shr, toInt, toString, toStringAs, xor)
@@ -120,8 +119,8 @@ main = do
 
   log "pow should perform integer exponentiation and yield 0 for negative exponents"
   assert $ three `pow` four == fromInt 81
-  assert $ (spy "2" $ three `pow` -two) == (spy "zero" zero)
-  assert $ (spy "3" $ three `pow` zero) == one
+  assert $ (three `pow` -two) == zero
+  assert $ (three `pow` zero) == one
   assert $ zero `pow` zero == one
 
   log "Logic"

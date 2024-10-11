@@ -33,7 +33,6 @@
             "arrays",
             "assert",
             "console",
-            "debug",
             "effect",
             "foldable-traversable",
             "newtype",
@@ -48,7 +47,6 @@
             "const",
             "contravariant",
             "control",
-            "debug",
             "distributive",
             "effect",
             "either",
@@ -689,15 +687,6 @@
       "integrity": "sha256-sH7Pg9E96JCPF9PIA6oQ8+BjTyO/BH1ZuE/bOcyj4Jk=",
       "dependencies": [
         "newtype",
-        "prelude"
-      ]
-    },
-    "debug": {
-      "type": "registry",
-      "version": "6.0.2",
-      "integrity": "sha256-vmkYFuXYuELBzeauvgHG6E6Kf/Hp1dAnxwE9ByHfwSg=",
-      "dependencies": [
-        "functions",
         "prelude"
       ]
     },
