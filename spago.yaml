@@ -2,7 +2,7 @@ package:
   name: js-bigints
   publish:
     license: MIT
-    version: 2.2.1
+    version: 3.0.0
     location:
       githubOwner: rowtype-yoga
       githubRepo: purescript-js-bigints
