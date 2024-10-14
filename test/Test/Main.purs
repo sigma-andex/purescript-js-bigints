@@ -9,7 +9,6 @@ import Data.Int (base36)
 import Data.Maybe (Maybe(..), fromMaybe, isJust)
 import Data.Monoid.Conj (Conj(..))
 import Data.Newtype (un)
-import Debug (spy)
 import Effect (Effect)
 import Effect.Console (log)
 import JS.BigInt (BigInt, and, binary, decimal, even, fromInt, fromString, fromStringAs, fromTLInt, hexadecimal, not, octal, odd, or, pow, shl, shr, toInt, toString, toStringAs, xor)
@@ -81,10 +80,12 @@ main = do
   assert $ fromString "10000000" == Just (fromInt 10000000)
   quickCheck $ \(TestBigInt a) -> (fromString <<< toString) a == Just a
 
-  quickCheck $ \(TestBigInt a) -> 
-    let radixes = [binary, octal, decimal, hexadecimal, base36]
-    in un Conj $ flip foldMap radixes $ \r -> 
-          Conj $ (fromStringAs r $ toStringAs r a) == Just a
+  quickCheck $ \(TestBigInt a) ->
+    let
+      radixes = [ binary, octal, decimal, hexadecimal, base36 ]
+    in
+      un Conj $ flip foldMap radixes $ \r ->
+        Conj $ (fromStringAs r $ toStringAs r a) == Just a
 
   log "Parsing strings with a different base"
   assert $ fromString "0b100" == Just four
@@ -98,7 +99,7 @@ main = do
   log "Binary relations between integers should hold before and after converting to BigInt"
   testBinary (+) (+)
   testBinary (-) (-)
---  testBinary (*) (*)
+  --  testBinary (*) (*)
   testBinary mod mod
   testBinary (/) (/)
 
@@ -118,8 +119,8 @@ main = do
 
   log "pow should perform integer exponentiation and yield 0 for negative exponents"
   assert $ three `pow` four == fromInt 81
-  assert $ (spy "2" $ three `pow` -two) == (spy "zero" zero)
-  assert $ (spy "3" $ three `pow` zero) == one
+  assert $ (three `pow` -two) == zero
+  assert $ (three `pow` zero) == one
   assert $ zero `pow` zero == one
 
   log "Logic"

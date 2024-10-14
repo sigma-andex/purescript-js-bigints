@@ -13,24 +13,24 @@ export const fromStringAsImpl = function (just) {
     return function (radix) {
       return function (_value) {
 
-        // Preprocess for potentially negative numbers. Since the toString 
-        // function simply prepends a '-' character for negative numbers, 
+        // Preprocess for potentially negative numbers. Since the toString
+        // function simply prepends a '-' character for negative numbers,
         // we need this to make fromStringAs an inverse function.
         var value, op;
         if (_value[0] === "-") {
-          op = function (v) {return BigInt(-1) * v};
+          op = function (v) { return BigInt(-1) * v };
           value = _value.slice(1);
         } else {
-          op = function (v) {return v};
+          op = function (v) { return v };
           value = _value;
         }
 
         value.replace(/^0+/, '')
 
         var size = 6,
-            factor = BigInt(radix ** size),
-            i = value.length % size || size,
-            parts = [value.slice(0, i)];
+          factor = BigInt(radix ** size),
+          i = value.length % size || size,
+          parts = [value.slice(0, i)];
 
         while (i < value.length) parts.push(value.slice(i, i += size));
 
@@ -42,7 +42,7 @@ export const fromStringAsImpl = function (just) {
             return acc * factor + BigInt(n);
           }
         };
-        
+
         try {
           return just(op(parts.reduce(f, 0n)));
         } catch (err) {
@@ -87,14 +87,13 @@ export const biDiv = (x) => (y) => {
 
 export const biDegree = (x) => {
   return x < 0n ? -x : x;
-  
 }
 
 export const biZero = 0n;
 
 export const biOne = 1n;
 
-export const pow = (x) => (y) => y >= 0n ?  x ** y : 0n;
+export const pow = (x) => (y) => y >= 0n ? x ** y : 0n;
 
 export const not = (x) => ~x;
 

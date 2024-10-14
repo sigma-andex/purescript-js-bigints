@@ -37,12 +37,12 @@ import Type.Proxy (Proxy(..))
 foreign import data BigInt ∷ Type
 
 -- | FFI wrapper to parse a String into a BigInt.
-foreign import fromStringImpl ∷
-  ∀ a.
-  (a → Maybe a) →
-  Maybe a →
-  String →
-  Maybe BigInt
+foreign import fromStringImpl
+  ∷ ∀ a
+  . (a → Maybe a)
+  → Maybe a
+  → String
+  → Maybe BigInt
 
 -- | Parse a string into a `BigInt`. Returns `Nothing` if the parse fails.
 -- | Supports decimal, binary, octal, hexadecimal and exponentiation notations.
@@ -86,12 +86,12 @@ fromStringAs = fromStringAsImpl Just Nothing
 foreign import fromInt ∷ Int → BigInt
 
 -- | FFI wrapper to parse a Number into a BigInt.
-foreign import fromNumberImpl ∷
-  ∀ a.
-  (a → Maybe a) →
-  Maybe a →
-  Number →
-  Maybe BigInt
+foreign import fromNumberImpl
+  ∷ ∀ a
+  . (a → Maybe a)
+  → Maybe a
+  → Number
+  → Maybe BigInt
 
 -- | Convert a Number to a BigInt. The fractional part is truncated.
 fromNumber ∷ Number → Maybe BigInt
