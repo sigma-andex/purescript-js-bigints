@@ -22,7 +22,4 @@ package:
       - arrays
       - console
       - foldable-traversable
-workspace:
-  extraPackages: {}
-  packageSet:
-    registry: 60.5.0
+workspace: {}
